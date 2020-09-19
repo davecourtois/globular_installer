@@ -1,1 +1,1 @@
-# glolbular_installer
+# globular installer
