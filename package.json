@@ -1,0 +1,24 @@
+{
+  "name": "globular_installer",
+  "version": "1.0.0",
+  "description": "Installer for globular and it's services.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davecourtois/globular-installer.git"
+  },
+  "keywords": [
+    "globular",
+    "devsop",
+    "webapplication"
+  ],
+  "author": "Steve Queron, Dave Courtois",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davecourtois/globular-installer/issues"
+  },
+  "homepage": "https://github.com/davecourtois/globular-installer#readme"
+}
