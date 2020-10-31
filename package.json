@@ -1,24 +1,44 @@
 {
   "name": "globular_installer",
   "version": "1.0.0",
-  "description": "Installer for globular and it's services.",
-  "main": "index.js",
+  "description": "Globular Configuration Panel",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production && cp -r images dist && cp index.html dist && Globular deploy -u=sa -p=400zm89a -name=globular_installer -a=globular.io -path=dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davecourtois/globular-installer.git"
+    "url": "git+https://github.com/davecourtois/globular_installer.git"
   },
   "keywords": [
-    "globular",
-    "devsop",
-    "webapplication"
+    "Globular",
+    "Configuration",
+    "Admin",
+    "Devops"
   ],
-  "author": "Steve Queron, Dave Courtois",
+  "author": "Dave Courtois, Steve Queron",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/davecourtois/globular-installer/issues"
+    "url": "https://github.com/davecourtois/globular_installer/issues"
   },
-  "homepage": "https://github.com/davecourtois/globular-installer#readme"
+  "dependencies": {
+    "globular-mvc": "^1.0.65",
+    "globular-web-client": "^1.1.69"
+  },
+  "devDependencies": {
+    "@types/jwt-decode": "^2.2.1",
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "jwt-decode": "^2.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^8.0.4",
+    "typescript": "^3.9.2",
+    "typescript-plugin-css-modules": "^2.3.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.0.0"
+  },
+  "homepage": "https://github.com/davecourtois/globular_installer#readme"
 }

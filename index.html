@@ -1,9 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Globular Installer</title>
-  </head>
-  <body>
-    
-  </body>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Sniglet" />
+
+    <title>Globular</title>
+
+    <script src="./bundle.js"> </script>
+</head>
+
+<body>
+    <globular-application theme="light">
+        <div id="title" slot="title">Globular</div>
+        <div id="side-menu" slot="side-menu"></div>
+        <div id="toolbar" slot="toolbar"></div>
+        <div id="workspace" slot="workspace">
+        </div>
+    </globular-application>
+</body>
+
 </html>
