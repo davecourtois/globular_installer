@@ -22,8 +22,8 @@
     "url": "https://github.com/davecourtois/globular_installer/issues"
   },
   "dependencies": {
-    "globular-mvc": "^1.0.65",
-    "globular-web-client": "^1.1.69"
+    "globular-mvc": "^1.0.68",
+    "globular-web-client": "^1.1.85"
   },
   "devDependencies": {
     "@types/jwt-decode": "^2.2.1",

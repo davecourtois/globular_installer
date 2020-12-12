@@ -1,5 +1,5 @@
 import { GetConfigResponse, SaveConfigRequest, SetRootEmailRequest, SetRootPasswordRequest, GetConfigRequest, RestartServicesRequest} from "globular-web-client/admin/admin_pb";
-import { AuthenticateRqst, AuthenticateRsp } from "globular-web-client/ressource/ressource_pb";
+import { AuthenticateRqst, AuthenticateRsp } from "globular-web-client/resource/resource_pb";
 import { Wizard } from "globular-mvc/components/Wizard";
 import { Model } from "globular-mvc/Model";
 
@@ -667,7 +667,7 @@ export class InstallationWizard {
                                     rqst.setName(this.new_email)
                                     rqst.setPassword(this.admin_pwd)
 
-                                    Model.globular.ressourceService.authenticate(rqst, { domain: Model.domain, application: Model.application }).then(
+                                    Model.globular.resourceService.authenticate(rqst, { domain: Model.domain, application: Model.application }).then(
                                         (rsp: AuthenticateRsp) => {
                                             let token = rsp.getToken();
                                             let rqst = new GetConfigRequest
