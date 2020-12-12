@@ -660,7 +660,7 @@ export class InstallationWizard {
 
                                     (<any>this.wiz.getElementById("save_apply_config_wait")).setAttribute("active");
                                     this.wiz.getElementById("save_apply_config_wait").style.display = "block";
-                                    this.wiz.getElementById("set_admin_pwd_done").style.display = "none";
+                                    this.wiz.getElementById("save_apply_config_done").style.display = "none";
 
                                     // Now I will logged admin
                                     let rqst = new AuthenticateRqst
