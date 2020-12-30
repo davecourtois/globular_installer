@@ -673,7 +673,8 @@ export class InstallationWizard {
                                             let rqst = new GetConfigRequest
                                             Model.globular.adminService.getFullConfig(rqst, { token: token, domain: Model.domain, application: Model.application })
                                                 .then((rsp: GetConfigResponse) => {
-                                                    let config = JSON.parse(rsp.getResult());
+                                                    
+                                                    let config = rsp.getResult().toJavaScript();
 
                                                     config.Protocol = "http"
                                                     let https = <any>this.wiz.getElementById("https")
