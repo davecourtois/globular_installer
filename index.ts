@@ -15,7 +15,6 @@ function main() {
     model.init( window.location.origin + "/config",
         () => {
         // Test if the server is configure or not...
-        console.log(Model.eventHub)
         let installationWizard = new InstallationWizard(document.getElementById("workspace"))
     }, (err: any) => {
 

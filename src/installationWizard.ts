@@ -1,4 +1,4 @@
-import { GetConfigResponse, SaveConfigRequest, SetRootEmailRequest, SetRootPasswordRequest, GetConfigRequest, RestartServicesRequest} from "globular-web-client/admin/admin_pb";
+import { GetConfigResponse, SaveConfigRequest, SetRootEmailRequest, SetRootPasswordRequest, GetConfigRequest} from "globular-web-client/admin/admin_pb";
 import { AuthenticateRqst, AuthenticateRsp } from "globular-web-client/resource/resource_pb";
 import { Wizard } from "globular-mvc/components/Wizard";
 import { Model } from "globular-mvc/Model";
@@ -733,56 +733,31 @@ export class InstallationWizard {
                                                     rqst.setConfig(JSON.stringify(config));
                                                     Model.globular.adminService.saveConfig(rqst, { token: token, domain: Model.domain, application: Model.application })
                                                         .then(() => {
-                                                            // Resquest services.
-                                                            let rqst = new RestartServicesRequest
-                                                            Model.globular.adminService.restartServices(rqst, { token: token, domain: Model.domain, application: Model.application })
-                                                            .then(()=>{
-                                                                
-                                                            })
-                                                            .catch(
-                                                                () => {
-                                                                // Redirect to the web page.
-                                                                let url = config.Protocol + "://" + config.Domain
-                                                                if (config.Protocol == "https") {
-                                                                    if (config.PortHttps != 443) {
-                                                                        url += ":" + config.PortHttps
-                                                                    }
-                                                                } else {
-                                                                    if (config.PortHttp != 80) {
-                                                                        url += ":" + config.PortHttp
-                                                                    }
-                                                                }
+                                                            let url = config.Protocol + "://" + config.Domain
+                                                            setInterval(() => {
+                                                                var oReq = new XMLHttpRequest();
+                                                                oReq.onload = (e) => {
 
-
-                                                                setInterval(() => {
-                                                                    var oReq = new XMLHttpRequest();
-
-                                                                    oReq.onload = (e) => {
-
-                                                                        if (oReq.readyState === 4) {
-                                                                            if (oReq.status === 200) {
-                                                                                (<any>this.wiz.getElementById("wait_server_restart_wait")).removeAttribute("active");
-                                                                                this.wiz.getElementById("wait_server_restart_wait").style.display = "none";
-                                                                                this.wiz.getElementById("wait_server_restart_done").style.display = "block";
-                                                                                setTimeout(()=>{
-                                                                                    // Redirect to the new address.
-                                                                                    window.location.replace(url);
-                                                                                }, 1000);
-                                                                            } else {
-                                                                                console.log("Error", oReq.statusText);
-                                                                            }
+                                                                    if (oReq.readyState === 4) {
+                                                                        if (oReq.status === 200) {
+                                                                            (<any>this.wiz.getElementById("wait_server_restart_wait")).removeAttribute("active");
+                                                                            this.wiz.getElementById("wait_server_restart_wait").style.display = "none";
+                                                                            this.wiz.getElementById("wait_server_restart_done").style.display = "block";
+                                                                            setTimeout(()=>{
+                                                                                // Redirect to the new address.
+                                                                                window.location.replace(url);
+                                                                            }, 1000);
+                                                                        } else {
+                                                                            console.log("Error", oReq.statusText);
                                                                         }
                                                                     }
-                                                                    oReq.open("GET", url);
-                                                                    oReq.responseType = "arraybuffer";
-                                                                    oReq.send();
-                                                                }, 2000);
-
-
-
-                                                            })
+                                                                }
+                                                                oReq.open("GET", url);
+                                                                oReq.responseType = "arraybuffer";
+                                                                oReq.send();
+                                                            }, 2000);
                                                         }).catch((err: any) => {
-                                                            console.log(err)
+
                                                         })
                                                 })
                                         })

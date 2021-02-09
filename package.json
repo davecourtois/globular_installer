@@ -4,7 +4,7 @@
   "description": "Globular Configuration Panel",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production && cp -r images dist && cp index.html dist && Globular deploy -u=sa -p=adminadmin -name=globular_installer -o=globulario -a=globular.live -path=dist"
+    "build": "webpack --mode production && cp -r images dist && cp index.html dist && Globular deploy -u=sa -p=adminadmin -name=globular_installer -a=localhost -path=dist"
   },
   "repository": {
     "type": "git",
@@ -16,14 +16,14 @@
     "Admin",
     "Devops"
   ],
-  "author": "Dave Courtois, Steve Queron",
+  "author": "Dave Courtois",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/davecourtois/globular_installer/issues"
   },
   "dependencies": {
-    "globular-mvc": "^1.0.68",
-    "globular-web-client": "^1.1.88"
+    "globular-mvc": "^1.0.73",
+    "globular-web-client": "^1.1.92"
   },
   "devDependencies": {
     "@types/jwt-decode": "^2.2.1",

@@ -18,3 +18,9 @@ body{
 #welcome_page{
     height: 200px;
 }
+
+#workspace{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
